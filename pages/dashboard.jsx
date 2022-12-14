@@ -1,4 +1,5 @@
 import Image from "next/image";
+import AccountDetailsHeader from "../components/AccountDetailsHeader";
 
 const Dashboard = () => {
   return (
@@ -130,6 +131,21 @@ const Dashboard = () => {
               </svg>
             }
           />
+        </div>
+      </div>
+      <div className="flex px-5 w-full pt-[30px] flex-col justify-start items-end">
+        <AccountDetailsHeader />
+        <div className="flex justify-start h-full items-center sm:items-start flex-col pt-[40px] sm:pt-5 w-full">
+          <h2 className="text-dark-blue text-2xl font-medium">Home</h2>
+          <div className="flex flex-col h-full justify-center items-center gap-4 self-center">
+            <p className="text-gray max-w-[400px] text-center">
+              This is where you will see your transactions and activity. Choose
+              how you would like to started.
+            </p>{" "}
+            <button className="bg-green block  rounded-sm mt-3 font-medium w-[115px] leading-[1] h-[40px] border-none text-white text-sm hover:bg-emerald-700 cursor-pointer">
+              Send Money
+            </button>
+          </div>
         </div>
       </div>
     </div>
