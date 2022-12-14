@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -70,30 +71,29 @@ export default function Home() {
               Sign up
             </a>
           </p>
-          <form className="flex justify-center  max-w-[500px] items-center w-full gap-5 mt-4 flex-col">
-            <div className="flex w-full flex-col justify-start items-start gap-2">
-              <p className="text-sm peer-focus:text-dark-blue text-gray font-normal">
-                Your email address
-              </p>
+          <form className="flex justify-center  max-w-[500px] items-center w-full gap-8 mt-4 flex-col">
+            <div className="flex w-full focus-within:text-dark-blue text-gray flex-col justify-start items-start gap-2">
+              <p className="text-sm font-medium">Your email address</p>
               <input
                 type={"email"}
                 className="w-full h-[50px] rounded-md transition-all outline-none focus:border-dark-blue border-[1px] border-solid border-[#c9cbce] pl-2 text-base text-dark-blue"
                 placeholder="Your email address"
               />
             </div>
-            <div className="flex w-full flex-col justify-start items-start gap-2">
-              <p className="text-sm peer-focus:text-dark-blue text-gray font-normal">
-                Your password
-              </p>
+            <div className="flex w-full  focus-within:text-dark-blue text-gray flex-col justify-start items-start gap-2">
+              <p className="text-sm font-medium">Your password</p>
               <input
                 type={"password"}
                 className="w-full h-[50px] rounded-md transition-all outline-none focus:border-dark-blue border-[1px] border-solid border-[#c9cbce] pl-2 text-base text-dark-blue"
                 placeholder="Your password"
               />
             </div>
-            <button className="bg-blue w-full border-none h-[50px] text-white font-medium text-base rounded-md ">
+            <Link
+              href={"/dashboard"}
+              className="bg-blue grid place-items-center hover:bg-cyan-600 w-full border-none h-[50px] text-white font-medium text-base rounded-md "
+            >
               Log in
-            </button>
+            </Link>
             <div className="flex justify-between items-center w-full max-w-full">
               <div className="flex justify-center items-center gap-2">
                 <input type={"checkbox"} className="accent-blue" />
