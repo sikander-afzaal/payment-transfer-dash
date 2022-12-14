@@ -109,27 +109,27 @@ const Dashboard = () => {
               </svg>
             }
           />
-          {window.innerWidth > 1024 && (
-            <NavIcon
-              text="Earn $50"
-              ico={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
-                  />
-                </svg>
-              }
-            />
-          )}
+
+          <NavIcon
+            hide
+            text="Earn $50"
+            ico={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
+                />
+              </svg>
+            }
+          />
         </div>
       </div>
     </div>
@@ -138,10 +138,12 @@ const Dashboard = () => {
 
 export default Dashboard;
 
-const NavIcon = ({ active, text, ico }) => {
+const NavIcon = ({ active, text, ico, hide }) => {
   return (
     <div
-      className={`flex lg:flex-row flex-col justify-start cursor-pointer items-center gap-2 lg:gap-4 lg:px-8 p-0 lg:py-2 w-[40px] lg:h-auto h-[42px] lg:w-full rounded-sm  lg:border-solid border-none lg:border-r-[3px] ${
+      className={` lg:flex-row ${
+        hide ? "lg:flex hidden" : "flex"
+      } flex-col justify-start cursor-pointer items-center gap-2 lg:gap-4 lg:px-8 p-0 lg:py-2 w-[40px] lg:h-auto h-[42px] lg:w-full rounded-sm  lg:border-solid border-none lg:border-r-[3px] ${
         active ? "border-blue text-blue" : "border-transparent text-dark-blue"
       }`}
     >
