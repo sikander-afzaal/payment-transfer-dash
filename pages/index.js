@@ -48,8 +48,8 @@ export default function Home() {
                   <path d="M20.143 1.719V5.19A10.26 10.26 0 0 0 12.43 1.72c-5.657 0-10.286 4.628-10.286 10.286 0 5.657 4.629 10.285 10.286 10.285 2.743 0 5.314-1.071 7.286-3l-1.2-1.2a8.74 8.74 0 0 1-6.086 2.486c-4.715 0-8.572-3.857-8.572-8.572 0-4.714 3.857-8.571 8.572-8.571 2.743 0 5.271 1.286 6.857 3.429H15v1.714h6a.86.86 0 0 0 .857-.857v-6h-1.714Z"></path>
                 </svg>
                 <p className="text-white">
-                  If your login details were auto-saved, <br /> you'll need to
-                  save them again.
+                  If your login details were auto-saved, <br /> you{"'"}ll need
+                  to save them again.
                 </p>
               </div>
             </div>
