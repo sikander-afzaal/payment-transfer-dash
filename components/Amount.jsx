@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Amount = ({ setSteps }) => {
   return (
-    <div className="flex justify-start items-start flex-col w-full max-w-[562px] px-5 mt-[80px]">
+    <div className="flex justify-start items-start flex-col w-full max-w-[562px] px-5 mt-[50px] lg:mt-[80px]">
       <div className="flex justify-center items-center w-full">
         <p className="text-blue cursor-pointer text-center font-medium w-full pb-3 border-solid border-b-[3px] border-b-blue ">
           International

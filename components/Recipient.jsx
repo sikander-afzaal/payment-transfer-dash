@@ -1,6 +1,6 @@
 const Recipient = ({ setSteps }) => {
   return (
-    <div className="flex px-2 mt-[80px] justify-center flex-col gap-5 items-center w-full max-w-[562px]">
+    <div className="flex px-2 mt-[50px] lg:mt-[80px] justify-center flex-col gap-5 items-center w-full max-w-[562px]">
       <h2 className="text-dark-blue font-semibold text-xl text-center sm:text-[24px]">
         Who are you sending money to?
       </h2>
