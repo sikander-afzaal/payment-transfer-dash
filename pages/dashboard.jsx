@@ -12,12 +12,14 @@ const Dashboard = () => {
           width={24}
           height={24}
         />
-        <Link href={"/payment"}>
-          <button className="bg-green lg:block hidden  rounded-sm mt-3 font-medium w-[115px] leading-[1] h-[40px] border-none text-white text-sm hover:bg-emerald-700 cursor-pointer">
-            Send Money
-          </button>
+
+        <Link
+          href={"/payment"}
+          className="bg-green lg:block hidden  rounded-sm mt-3 font-medium w-[115px] leading-[1] h-[40px] border-none text-white text-sm hover:bg-emerald-700 cursor-pointer"
+        >
+          Send Money
         </Link>
-        <div className="flex px-5 lg:p-0 lg:flex-col flex-row justify-center lg:justify-start items-center lg:items-start  w-full gap-[40px] lg:gap-8">
+        <div className="flex px-5 lg:p-0 lg:flex-col flex-row justify-center lg:justify-start items-start lg:items-start  w-full gap-[40px] lg:gap-8">
           <NavIcon
             ico={
               <svg
