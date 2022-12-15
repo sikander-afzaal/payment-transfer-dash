@@ -8,7 +8,7 @@ const Pay = () => {
     false,
   ]);
   return (
-    <div className="lg:flex-row flex-col flex px-5 justify-start w-full max-w-[1000px] items-start gap-[50px] mt-[50px] lg:mt-[80px]">
+    <div className="lg:flex-row flex-col flex px-5 justify-start w-full max-w-[1000px] items-start gap-[50px] mt-[30px] lg:mt-[80px]">
       {/* //payment option ----------------- */}
       <div className="flex justify-start w-full items-start gap-5 flex-col">
         <h2 className="text-dark-blue text-2xl font-medium mb-6">
