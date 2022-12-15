@@ -16,6 +16,10 @@ module.exports = {
         blue: "#00a2dd",
         gray: "#5d7079",
         green: "#2ead4b",
+        red: "#d03238",
+      },
+      backgroundImage: {
+        progress: "linear-gradient(to right,#00a2dd,#37517e)",
       },
     },
   },

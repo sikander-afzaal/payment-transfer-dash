@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import AccountDetailsHeader from "../components/AccountDetailsHeader";
 
 const Dashboard = () => {
@@ -11,9 +12,11 @@ const Dashboard = () => {
           width={24}
           height={24}
         />
-        <button className="bg-green lg:block hidden  rounded-sm mt-3 font-medium w-[115px] leading-[1] h-[40px] border-none text-white text-sm hover:bg-emerald-700 cursor-pointer">
-          Send Money
-        </button>
+        <Link href={"/payment"}>
+          <button className="bg-green lg:block hidden  rounded-sm mt-3 font-medium w-[115px] leading-[1] h-[40px] border-none text-white text-sm hover:bg-emerald-700 cursor-pointer">
+            Send Money
+          </button>
+        </Link>
         <div className="flex px-5 lg:p-0 lg:flex-col flex-row justify-center lg:justify-start items-center lg:items-start  w-full gap-[40px] lg:gap-8">
           <NavIcon
             ico={
@@ -142,9 +145,11 @@ const Dashboard = () => {
               This is where you will see your transactions and activity. Choose
               how you would like to started.
             </p>{" "}
-            <button className="bg-green block  rounded-sm mt-3 font-medium w-[115px] leading-[1] h-[40px] border-none text-white text-sm hover:bg-emerald-700 cursor-pointer">
-              Send Money
-            </button>
+            <Link href={"/payment"}>
+              <button className="bg-green block  rounded-sm mt-3 font-medium w-[115px] leading-[1] h-[40px] border-none text-white text-sm hover:bg-emerald-700 cursor-pointer">
+                Send Money
+              </button>
+            </Link>
           </div>
         </div>
       </div>
