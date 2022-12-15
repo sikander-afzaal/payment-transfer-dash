@@ -119,7 +119,7 @@ const Pay = () => {
             <span className="font-medium text-base">0.57 GBP</span>
           </p>
           <p className="text-dark-blue w-full flex justify-between items-center font-normal text-sm">
-            Total amount we'll convert{" "}
+            Total amount we{"'"}ll convert{" "}
             <span className="font-normal text-base">19.43 GBP</span>
           </p>
           <p className="text-dark-blue w-full flex justify-between items-center font-normal text-sm">
