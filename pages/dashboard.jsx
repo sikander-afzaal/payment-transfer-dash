@@ -56,31 +56,30 @@ const Dashboard = () => {
                 />
               </svg>
             }
-          />
-          <Link href={"/payment"}>
-            {" "}
-            <button className="lg:hidden relative w-[40px] h-[42px]  flex-col flex  justify-end items-center ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="white"
-                className="w-10 p-[6px] h-10 absolute bottom-[100%] z-1- translate-y-1/2 rounded-full bg-green"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18"
-                />
-              </svg>
-              {/* <span className="absolute bg-transparent rounded-full border-b-0 -top-[63%] -z-10 border-solid border-[1px] border-[#0000001a] w-12 h-12 "></span> */}
-              <p className="font-semibold text-dark-blue text-[10px] lg:text-sm leading-[1] ">
-                Send
-              </p>
-            </button>
+          />{" "}
+          <Link
+            href={"/payment"}
+            className="lg:hidden relative w-[40px] h-[42px]  flex-col flex  justify-end items-center "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="white"
+              className="w-10 p-[6px] h-10 absolute bottom-[100%] z-1- translate-y-1/2 rounded-full bg-green"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18"
+              />
+            </svg>
+            {/* <span className="absolute bg-transparent rounded-full border-b-0 -top-[63%] -z-10 border-solid border-[1px] border-[#0000001a] w-12 h-12 "></span> */}
+            <p className="font-semibold text-dark-blue text-[10px] lg:text-sm leading-[1] ">
+              Send
+            </p>
           </Link>
-
           <NavIcon
             text="Recipients"
             ico={
@@ -117,7 +116,6 @@ const Dashboard = () => {
               </svg>
             }
           />
-
           <NavIcon
             hide
             text="Earn $50"
