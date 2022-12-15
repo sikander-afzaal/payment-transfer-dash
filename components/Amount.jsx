@@ -33,6 +33,7 @@ const Amount = ({ setSteps }) => {
               className="flex justify-center items-center gap-3 h-full w-full"
               onClick={() => {
                 setDropDown1((prev) => !prev);
+                setDropDown2(false);
               }}
             >
               {" "}
@@ -54,7 +55,7 @@ const Amount = ({ setSteps }) => {
               </svg>
             </div>
             {dropDown1 && (
-              <div className="absolute pb-5 z-20  top-full  right-0 bg-white rounded-md shadow-lg max-h-[600px] overflow-y-auto w-[420px]">
+              <div className="absolute pb-5 z-20  top-full  right-0 bg-white rounded-md shadow-lg max-h-[600px] overflow-y-auto  w-[350px] sm:w-[420px]">
                 <div className="flex px-5 py-2 border-b-[1px] border-solid border-[#0000001a] justify-start text-gray items-center gap-2 w-full">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -158,6 +159,7 @@ const Amount = ({ setSteps }) => {
               className="flex justify-center items-center gap-3 h-full w-full"
               onClick={() => {
                 setDropDown2((prev) => !prev);
+                setDropDown1(false);
               }}
             >
               {" "}
@@ -179,7 +181,7 @@ const Amount = ({ setSteps }) => {
               </svg>
             </div>
             {dropDown2 && (
-              <div className="absolute pb-5 z-20  top-full  right-0 bg-white rounded-md shadow-lg max-h-[600px] overflow-y-auto w-[420px]">
+              <div className="absolute pb-5 z-20  top-full  right-0 bg-white rounded-md shadow-lg max-h-[600px] overflow-y-auto w-[350px] sm:w-[420px]">
                 <div className="flex px-5 py-2 border-b-[1px] border-solid border-[#0000001a] justify-start text-gray items-center gap-2 w-full">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
