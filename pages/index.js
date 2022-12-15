@@ -89,7 +89,7 @@ export default function Home() {
               />
             </div>
             <Link
-              href={"/dashboard"}
+              href={"/home"}
               className="bg-blue grid place-items-center hover:bg-cyan-600 w-full border-none h-[50px] text-white font-medium text-base rounded-md "
             >
               Log in

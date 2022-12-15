@@ -6,12 +6,14 @@ const DashboardLayout = ({ children }) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[240px__1fr] min-h-screen">
       <div className="flex bg-white border-solid border-t-[#0000001a] border-t-[1px] lg:bg-[#f2f5f7] justify-center lg:justify-start w-full h-[50px] lg:h-screen fixed lg:sticky bottom-0 lg:top-0 left-0 items-center flex-col p-0 lg:pt-[60px] gap-12">
-        <Image
-          src={"/wise-ico.svg"}
-          className="lg:block hidden"
-          width={24}
-          height={24}
-        />
+        <Link href={"/home"}>
+          <Image
+            src={"/wise-ico.svg"}
+            className="lg:block hidden"
+            width={24}
+            height={24}
+          />
+        </Link>
 
         <Link
           href={"/payment"}
