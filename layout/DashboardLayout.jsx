@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AccountDetailsHeader from "../components/AccountDetailsHeader";
 
-const Dashboard = () => {
+const DashboardLayout = ({ children }) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[240px__1fr] min-h-screen">
       <div className="flex bg-white border-solid border-t-[#0000001a] border-t-[1px] lg:bg-[#f2f5f7] justify-center lg:justify-start w-full h-[50px] lg:h-screen fixed lg:sticky bottom-0 lg:top-0 left-0 items-center flex-col p-0 lg:pt-[60px] gap-12">
@@ -15,7 +15,7 @@ const Dashboard = () => {
 
         <Link
           href={"/payment"}
-          className="bg-green lg:block hidden  rounded-sm mt-3 font-medium w-[115px] leading-[1] h-[40px] border-none text-white text-sm hover:bg-emerald-700 cursor-pointer"
+          className="bg-green lg:grid hidden  place-items-center  rounded-sm mt-3 font-medium w-[115px] leading-[1] h-[40px] border-none text-white text-sm hover:bg-emerald-700 cursor-pointer"
         >
           Send Money
         </Link>
@@ -142,26 +142,13 @@ const Dashboard = () => {
       </div>
       <div className="flex px-5 w-full pt-[30px] flex-col justify-start items-end">
         <AccountDetailsHeader />
-        <div className="flex justify-start h-full items-center sm:items-start flex-col pt-[40px] sm:pt-5 w-full">
-          <h2 className="text-dark-blue text-2xl font-medium">Home</h2>
-          <div className="flex flex-col h-full justify-center items-center gap-4 self-center">
-            <p className="text-gray max-w-[400px] text-center">
-              This is where you will see your transactions and activity. Choose
-              how you would like to started.
-            </p>{" "}
-            <Link href={"/payment"}>
-              <button className="bg-green block  rounded-sm mt-3 font-medium w-[115px] leading-[1] h-[40px] border-none text-white text-sm hover:bg-emerald-700 cursor-pointer">
-                Send Money
-              </button>
-            </Link>
-          </div>
-        </div>
+        {children}
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default DashboardLayout;
 
 const NavIcon = ({ active, text, ico, hide }) => {
   return (
