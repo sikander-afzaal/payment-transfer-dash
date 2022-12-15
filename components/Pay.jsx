@@ -1,4 +1,5 @@
 import { useState } from "react";
+import TransactionModal from "./TransactionModal";
 
 const Pay = () => {
   const [radioBtnToggle, setRadioBtnToggle] = useState([
@@ -7,8 +8,10 @@ const Pay = () => {
     false,
     false,
   ]);
+  const [modal, setModal] = useState(false);
   return (
     <div className="lg:flex-row flex-col flex px-5 justify-start w-full max-w-[1000px] items-start gap-[50px] mt-[30px] lg:mt-[80px]">
+      {modal && <TransactionModal setModal={setModal} />}
       {/* //payment option ----------------- */}
       <div className="flex justify-start w-full items-start gap-5 flex-col">
         <h2 className="text-dark-blue text-2xl font-medium mb-6">
@@ -160,11 +163,14 @@ const Pay = () => {
             </p>
           </div>
         </div>
-        <button className="w-full border-none h-[50px] font-medium text-[17px] rounded-md text-white bg-blue cursor-pointer hover:bg-cyan-600">
+        <button
+          onClick={() => setModal(true)}
+          className="w-full border-none h-[50px] font-medium text-[17px] rounded-md text-white bg-blue cursor-pointer hover:bg-cyan-600"
+        >
           Continue to payment
         </button>
         <button className="w-full border-[1px] border-solid border-red text-red h-[50px] text-[17px] rounded-md hover:text-white bg-transparent transition-colors font-medium cursor-pointer hover:bg-red">
-          Continue to payment
+          Cancel Payment
         </button>
         <a href="#" className="text-blue underline font-semibold text-base">
           Looking for a different way to pay?
