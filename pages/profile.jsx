@@ -15,13 +15,13 @@ const Profile = () => {
             className="fixed w-full h-full top-0 left-0 bg-black opacity-60"
           ></div>
           <div
-            className="flex fixed top-1/2 left-1/2 w-full max-w-[400px]
+            className="flex fixed top-1/2 left-1/2 w-[95%] max-w-[400px]
           h-[250px] rounded-lg gap-6 -translate-y-1/2 z-20 -translate-x-1/2 justify-center items-center bg-white shadow-lg flex-col"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
-              onClick={() => savePrompt(false)}
+              onClick={() => setSavePrompt(false)}
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="#00a2dd"

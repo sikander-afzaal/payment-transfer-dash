@@ -7,7 +7,7 @@ const TransactionModal = ({ setModal, failed }) => {
         onClick={() => setModal(false)}
         className="fixed w-full h-full top-0 left-0 bg-black opacity-60"
       ></div>
-      <div className="fixed top-1/2 flex-col -translate-x-1/2 -translate-y-1/2 flex justify-center items-center  left-1/2 w-full max-w-[500px] px-5 py-20 bg-white rounded-lg">
+      <div className="fixed top-1/2 flex-col -translate-x-1/2 -translate-y-1/2 flex justify-center items-center  left-1/2 w-[95%] max-w-[500px] px-5 py-20 bg-white rounded-lg">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
