@@ -70,27 +70,6 @@ const DashboardLayout = ({ children }) => {
             url="/history"
             text={windowWidth < 1024 ? "History" : "Transaction History"}
           />
-          <NavIcon
-            text="Cards"
-            ico={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
-                />
-              </svg>
-            }
-            hide
-            url="/"
-          />{" "}
           <Link
             href={"/payment"}
             className="lg:hidden relative w-[40px] h-[42px]  flex-col flex  justify-end items-center "
@@ -132,29 +111,10 @@ const DashboardLayout = ({ children }) => {
                 />
               </svg>
             }
-            url="/"
+            url="/recipients"
           />
-          <NavIcon
-            text="Manage"
-            ico={
-              <svg
-                className="w-6 h-6"
-                fill="currentColor"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M4.286 11.144h6a.86.86 0 0 0 .857-.857v-6a.86.86 0 0 0-.857-.857h-6a.86.86 0 0 0-.857.857v6a.86.86 0 0 0 .857.857ZM9.429 9.43H5.143V5.144h4.286V9.43Zm4.285 1.714h6a.86.86 0 0 0 .858-.857v-6a.86.86 0 0 0-.857-.857h-6a.86.86 0 0 0-.858.857v6a.86.86 0 0 0 .857.857Zm5.143-1.714h-4.285V5.144h4.285V9.43Zm-8.571 11.142h-6a.86.86 0 0 1-.857-.857v-6a.86.86 0 0 1 .857-.858h6a.86.86 0 0 1 .857.858v6a.86.86 0 0 1-.857.857Zm-5.143-1.715h4.286v-4.285H5.143v4.285Zm8.572 1.715h6a.86.86 0 0 0 .857-.857v-6a.86.86 0 0 0-.857-.858h-6a.86.86 0 0 0-.858.858v6a.86.86 0 0 0 .858.857Zm5.142-1.715h-4.285v-4.285h4.285v4.285Z"
-                ></path>
-              </svg>
-            }
-            url="/"
-          />
-          <NavIcon
-            hide
-            text="Earn $50"
+          {/* <NavIcon
+            text="Cards"
             ico={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -167,12 +127,12 @@ const DashboardLayout = ({ children }) => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
+                  d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
                 />
               </svg>
             }
             url="/"
-          />
+          />{" "} */}
         </div>
       </div>
       <div className="flex px-5 lg:px-[40px]  w-full pt-[30px] flex-col justify-start items-end">

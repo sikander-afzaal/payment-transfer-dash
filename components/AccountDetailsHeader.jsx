@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 
 const AccountDetailsHeader = () => {
@@ -49,7 +50,7 @@ const AccountDetailsHeader = () => {
       {/* //Drop down ---------------------- */}
 
       <div
-        className={`fixed sm:absolute duration-700 top-0 sm:top-full transition-all bg-white shadow-lg ${
+        className={`fixed z-50 sm:absolute duration-700 top-0 sm:top-full transition-all bg-white shadow-lg ${
           openDrop ? "flex right-0" : "sm:hidden flex sm:right-0 right-[-800px]"
         } w-full h-screen sm:h-auto sm:w-[300px] justify-start items-start flex-col pt-5 px-5 sm:p-2`}
       >
@@ -76,25 +77,27 @@ const AccountDetailsHeader = () => {
           </p>
         </div>
         <div className="flex mt-2  cursor-pointer flex-col pb-2 border-b-[1px] border-solid border-[#0000001a] w-full  justify-start items-start gap-0">
-          <div className="flex text-blue hover:bg-[#86a7bd1a] rounded-lg transition-all w-full  p-[13px__16px__11px__8px] justify-start items-center gap-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-              />
-            </svg>
-            <p className="text-base font-medium leading-[1] text-dark-blue">
-              Your Details
-            </p>
-          </div>
+          <Link className="w-full" href={"/profile"}>
+            <div className="flex text-blue hover:bg-[#86a7bd1a] rounded-lg transition-all w-full  p-[13px__16px__11px__8px] justify-start items-center gap-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                />
+              </svg>
+              <p className="text-base font-medium leading-[1] text-dark-blue">
+                Your Details
+              </p>
+            </div>
+          </Link>
           <div className="flex text-blue hover:bg-[#86a7bd1a] rounded-lg transition-all w-full  p-[13px__16px__11px__8px] justify-start items-center gap-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,12 @@
+import { useState } from "react";
+import AddContactModal from "./AddContactModal";
+
 const Recipient = ({ setSteps }) => {
+  const [newContactModal, setNewContactModal] = useState(false);
+
   return (
     <div className="flex px-2 mt-[30px] lg:mt-[80px] justify-center flex-col gap-5 items-center w-full max-w-[562px]">
+      {newContactModal && <AddContactModal setModal={setNewContactModal} />}
       <h2 className="text-dark-blue font-semibold text-xl text-center sm:text-[24px]">
         Who are you sending money to?
       </h2>
@@ -26,7 +32,10 @@ const Recipient = ({ setSteps }) => {
           className=" w-full h-[50px] transition-colors outline-none text-dark-blue"
         />
       </div>
-      <div className="flex py-4 rounded-md hover:bg-[#86a7bd12] px-2 cursor-pointer   transition-all justify-between text-dark-blue w-full items-center">
+      <div
+        onClick={() => setNewContactModal(true)}
+        className="flex py-4 rounded-md hover:bg-[#86a7bd12] px-2 cursor-pointer   transition-all justify-between text-dark-blue w-full items-center"
+      >
         <div className="flex text-dark-blue justify-center items-center gap-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
