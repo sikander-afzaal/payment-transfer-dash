@@ -37,7 +37,7 @@ const Amount = ({ setSteps }) => {
               }}
             >
               {" "}
-              <Image src={"/flag.webp"} width={34} height={16} />
+              <Image alt="" src={"/flag.webp"} width={34} height={16} />
               <h2 className="text-white font-base text-xl">GBP</h2>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +163,7 @@ const Amount = ({ setSteps }) => {
               }}
             >
               {" "}
-              <Image src={"/flag.webp"} width={34} height={16} />
+              <Image alt="" src={"/flag.webp"} width={34} height={16} />
               <h2 className="text-white font-base text-xl">GBP</h2>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -260,7 +260,7 @@ const CountryDropdown = ({ name, img, curr, setDrop }) => {
       onClick={() => setDrop(false)}
       className="flex justify-start px-5  hover:bg-[rgba(134,167,189,.102)] cursor-pointer w-full py-4 items-center gap-0"
     >
-      <Image src={img} width={34} height={16} />
+      <Image alt="" src={img} width={34} height={16} />
       <h3 className="text-dark-blue font-medium text-base ml-3 leading-[1]">
         {name}
       </h3>

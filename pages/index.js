@@ -14,6 +14,7 @@ export default function Home() {
         <div className=" xl:flex hidden isolate overflow-hidden relative bg-dark-blue justify-start pt-[240px] items-center flex-col gap-5">
           <div className="flex flex-col justify-start items-center gap-4">
             <Image
+              alt=""
               src={"/logo.svg"}
               width={200}
               height={50}

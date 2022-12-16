@@ -32,7 +32,7 @@ const CurrencyCard = ({ flag, amount, name }) => {
   return (
     <div className="cursor-pointer hover:bg-[#38c8ff1a] flex justify-between items-start flex-col p-5 bg-[#86a7bd1a] w-[208px] h-[208px] rounded-lg">
       <div className="relative overflow-hidden w-[48px] h-[48px] rounded-full">
-        <Image src={flag} fill style={{ objectFit: "cover" }} />
+        <Image alt="" src={flag} fill style={{ objectFit: "cover" }} />
       </div>
       <div className="flex justify-start items-start flex-col gap-2">
         <h5 className="text-dark-blue text-xl font-normal leading-[1]">

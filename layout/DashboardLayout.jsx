@@ -1,19 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import AccountDetailsHeader from "../components/AccountDetailsHeader";
 
 const DashboardLayout = ({ children }) => {
+  const [windowWidth, setWindowWidth] = useState(false);
+  useEffect(() => {
+    const resizeFunc = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", resizeFunc);
+    return () => {
+      window.removeEventListener("resize", resizeFunc);
+    };
+  }, []);
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[240px__1fr] min-h-screen">
       <div className="flex bg-white border-solid border-t-[#0000001a] border-t-[1px] lg:bg-[#f2f5f7] justify-end lg:justify-start w-full h-[50px] lg:h-screen fixed lg:sticky bottom-0 lg:top-0 left-0 items-center flex-col p-0 lg:pt-[60px] gap-12">
-        <Link href={"/home"}>
-          <Image
-            src={"/wise-ico.svg"}
-            className="lg:block hidden"
-            width={24}
-            height={24}
-          />
+        <Link href={"/home"} className="lg:block hidden">
+          <Image alt="" src={"/wise-ico.svg"} width={24} height={24} />
         </Link>
 
         <Link
@@ -61,28 +68,7 @@ const DashboardLayout = ({ children }) => {
               </svg>
             }
             url="/history"
-            text="Transaction History"
-            hide
-          />
-          <NavIcon
-            ico={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z"
-                />
-              </svg>
-            }
-            url="/history"
-            text="History"
+            text={windowWidth < 1024 ? "History" : "Transaction History"}
           />
           <NavIcon
             text="Cards"
@@ -158,8 +144,8 @@ const DashboardLayout = ({ children }) => {
                 viewBox="0 0 24 24"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M4.286 11.144h6a.86.86 0 0 0 .857-.857v-6a.86.86 0 0 0-.857-.857h-6a.86.86 0 0 0-.857.857v6a.86.86 0 0 0 .857.857ZM9.429 9.43H5.143V5.144h4.286V9.43Zm4.285 1.714h6a.86.86 0 0 0 .858-.857v-6a.86.86 0 0 0-.857-.857h-6a.86.86 0 0 0-.858.857v6a.86.86 0 0 0 .857.857Zm5.143-1.714h-4.285V5.144h4.285V9.43Zm-8.571 11.142h-6a.86.86 0 0 1-.857-.857v-6a.86.86 0 0 1 .857-.858h6a.86.86 0 0 1 .857.858v6a.86.86 0 0 1-.857.857Zm-5.143-1.715h4.286v-4.285H5.143v4.285Zm8.572 1.715h6a.86.86 0 0 0 .857-.857v-6a.86.86 0 0 0-.857-.858h-6a.86.86 0 0 0-.858.858v6a.86.86 0 0 0 .858.857Zm5.142-1.715h-4.285v-4.285h4.285v4.285Z"
                 ></path>
               </svg>
@@ -205,16 +191,22 @@ const NavIcon = ({ text, ico, hide, url }) => {
   return (
     <Link
       href={`${url}`}
-      className={` lg:flex-row ${
-        hide ? "lg:flex hidden" : "flex"
-      } flex-col justify-start cursor-pointer items-center gap-2 lg:gap-4 lg:px-8 p-0 lg:py-2 w-max lg:h-auto h-[42px] lg:w-full rounded-sm  lg:border-solid border-none lg:border-r-[3px] ${
-        active ? "border-blue text-blue" : "border-transparent text-dark-blue"
-      }`}
+      className={`w-max lg:w-full  ${hide ? "lg:block hidden" : "block"}`}
     >
-      {ico}
-      <a href="#" className="font-semibold text-[10px] lg:text-sm leading-[1] ">
-        {text}
-      </a>
+      <div
+        className={` lg:flex-row flex
+        } flex-col justify-start cursor-pointer items-center gap-2 lg:gap-4 lg:px-8 p-0 lg:py-2 w-[42px] lg:h-auto h-[42px] lg:w-full rounded-sm  lg:border-solid border-none lg:border-r-[3px] ${
+          active ? "border-blue text-blue" : "border-transparent text-dark-blue"
+        }`}
+      >
+        {ico}
+        <p
+          href="#"
+          className="font-semibold text-[10px] lg:text-sm leading-[1] "
+        >
+          {text}
+        </p>
+      </div>
     </Link>
   );
 };
