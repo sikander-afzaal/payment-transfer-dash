@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import AccountDetailsHeader from "../components/AccountDetailsHeader";
 
 const DashboardLayout = ({ children }) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[240px__1fr] min-h-screen">
-      <div className="flex bg-white border-solid border-t-[#0000001a] border-t-[1px] lg:bg-[#f2f5f7] justify-center lg:justify-start w-full h-[50px] lg:h-screen fixed lg:sticky bottom-0 lg:top-0 left-0 items-center flex-col p-0 lg:pt-[60px] gap-12">
+      <div className="flex bg-white border-solid border-t-[#0000001a] border-t-[1px] lg:bg-[#f2f5f7] justify-end lg:justify-start w-full h-[50px] lg:h-screen fixed lg:sticky bottom-0 lg:top-0 left-0 items-center flex-col p-0 lg:pt-[60px] gap-12">
         <Link href={"/home"}>
           <Image
             src={"/wise-ico.svg"}
@@ -40,7 +41,48 @@ const DashboardLayout = ({ children }) => {
               </svg>
             }
             text="Home"
-            active
+            url={"/home"}
+          />
+          <NavIcon
+            ico={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z"
+                />
+              </svg>
+            }
+            url="/history"
+            text="Transaction History"
+            hide
+          />
+          <NavIcon
+            ico={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z"
+                />
+              </svg>
+            }
+            url="/history"
+            text="History"
           />
           <NavIcon
             text="Cards"
@@ -60,6 +102,8 @@ const DashboardLayout = ({ children }) => {
                 />
               </svg>
             }
+            hide
+            url="/"
           />{" "}
           <Link
             href={"/payment"}
@@ -102,6 +146,7 @@ const DashboardLayout = ({ children }) => {
                 />
               </svg>
             }
+            url="/"
           />
           <NavIcon
             text="Manage"
@@ -119,6 +164,7 @@ const DashboardLayout = ({ children }) => {
                 ></path>
               </svg>
             }
+            url="/"
           />
           <NavIcon
             hide
@@ -139,10 +185,11 @@ const DashboardLayout = ({ children }) => {
                 />
               </svg>
             }
+            url="/"
           />
         </div>
       </div>
-      <div className="flex px-5 w-full pt-[30px] flex-col justify-start items-end">
+      <div className="flex px-5 lg:px-[40px]  w-full pt-[30px] flex-col justify-start items-end">
         <AccountDetailsHeader />
         {children}
       </div>
@@ -152,12 +199,15 @@ const DashboardLayout = ({ children }) => {
 
 export default DashboardLayout;
 
-const NavIcon = ({ active, text, ico, hide }) => {
+const NavIcon = ({ text, ico, hide, url }) => {
+  const { pathname } = useRouter();
+  const active = pathname === url;
   return (
-    <div
+    <Link
+      href={`${url}`}
       className={` lg:flex-row ${
         hide ? "lg:flex hidden" : "flex"
-      } flex-col justify-start cursor-pointer items-center gap-2 lg:gap-4 lg:px-8 p-0 lg:py-2 w-[40px] lg:h-auto h-[42px] lg:w-full rounded-sm  lg:border-solid border-none lg:border-r-[3px] ${
+      } flex-col justify-start cursor-pointer items-center gap-2 lg:gap-4 lg:px-8 p-0 lg:py-2 w-max lg:h-auto h-[42px] lg:w-full rounded-sm  lg:border-solid border-none lg:border-r-[3px] ${
         active ? "border-blue text-blue" : "border-transparent text-dark-blue"
       }`}
     >
@@ -165,6 +215,6 @@ const NavIcon = ({ active, text, ico, hide }) => {
       <a href="#" className="font-semibold text-[10px] lg:text-sm leading-[1] ">
         {text}
       </a>
-    </div>
+    </Link>
   );
 };
