@@ -15,7 +15,7 @@ export default function Home() {
           <div className="flex flex-col justify-start items-center gap-4">
             <Image
               alt=""
-              src={"/logo.svg"}
+              src={"/logo.png"}
               width={200}
               height={50}
               style={{ objectFit: "contain" }}

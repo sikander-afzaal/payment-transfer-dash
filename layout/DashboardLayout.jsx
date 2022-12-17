@@ -20,7 +20,7 @@ const DashboardLayout = ({ children }) => {
     <div className="grid grid-cols-1 lg:grid-cols-[240px__1fr] min-h-screen">
       <div className="flex bg-white border-solid border-t-[#0000001a] border-t-[1px] lg:bg-[#f2f5f7] justify-end lg:justify-start w-full h-[50px] lg:h-screen fixed lg:sticky bottom-0 lg:top-0 left-0 items-center flex-col p-0 lg:pt-[60px] gap-12">
         <Link href={"/home"} className="lg:block hidden">
-          <Image alt="" src={"/wise-ico.svg"} width={24} height={24} />
+          <Image alt="" src={"/logo.png"} width={150} height={100} />
         </Link>
 
         <Link
