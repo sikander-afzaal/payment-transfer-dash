@@ -15,7 +15,7 @@ const Payment = () => {
         <div className="grid grid-cols-2 grid-rows-[auto__auto] lg:flex min-h-[96px] py-[24px] justify-between  items-center gap-4 w-full max-w-[1320px]">
           <div className="row-span-1 col-start-1 col-end-2">
             <Link href={"/home"}>
-              <Image alt="" src={"/logo.png"} width={95} height={24} />
+              <Image alt="" src={"/logo.png"} width={125} height={24} />
             </Link>
           </div>
           <div className="w-full max-w-[90%] justify-self-center lg:max-w-[562px] col-start-1 col-end-3 row-start-2 row-end-3   relative ">
