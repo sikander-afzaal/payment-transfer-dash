@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import DashboardLayout from "../layout/DashboardLayout";
 
 const Home = () => {
+  const [openDropdown, setOpenDropdown] = useState(false);
+
   return (
     <DashboardLayout>
       <div className="flex lg:pb-0 pb-[60px] justify-start h-full items-center self-start sm:items-start flex-col max-w-[1200px] pt-[40px] sm:pt-5 w-full">
@@ -22,28 +25,63 @@ const Home = () => {
               </button>
             </Link>
           </div> */}
+
+        {/* //amount in wallaet section starts here --------------------------- */}
         <div className="flex justify-start items-center gap-6 mt-[40px] flex-col w-full">
-          <div className="flex cursor-pointer gap-5 text-gray justify-between items-center px-1 py-1 rounded-full bg-white border-[1px] border-gray border-solid">
-            <div className="flex  justify-start items-center gap-2">
-              <div className="rounded-full relative w-[30px] h-[30px] overflow-hidden">
-                <Image alt="" src={"/flag.webp"} fill />
-              </div>
-              <p className="text-dark-blue text-sm font-medium">37.00 GBP</p>
-            </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-5 h-5"
+          <div className="relative flex  justify-between items-center  ">
+            <div
+              onClick={() => setOpenDropdown((prev) => !prev)}
+              className="flex        cursor-pointer text-gray justify-between items-center px-1 py-1 bg-white rounded-full  border-[1px] border-gray border-solid  gap-5 "
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-              />
-            </svg>
+              <div className="flex  justify-start items-center gap-2">
+                <div className="rounded-full relative w-[30px] h-[30px] overflow-hidden">
+                  <Image alt="" src={"/flag.webp"} fill />
+                </div>
+                <p className="text-dark-blue text-sm font-medium">37.00 GBP</p>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className={`w-5 h-5 ${
+                  openDropdown ? "rotate-180" : "rotate-0"
+                } transition-all`}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </div>
+            {openDropdown && (
+              <div className="bg-white flex flex-col py-1 rounded-lg border-[1px] border-gray border-solid w-full right-0 top-[120%] absolute z-20">
+                <div
+                  onClick={() => setOpenDropdown(false)}
+                  className="flex p-3 justify-between w-full hover:bg-[#86a7bd1a] transition-all cursor-pointer rounded items-center gap-2"
+                >
+                  <div className="rounded-full relative w-[30px] h-[30px] overflow-hidden">
+                    <Image alt="" src={"/flag.webp"} fill />
+                  </div>
+                  <p className="text-dark-blue text-sm font-medium">
+                    37.00 GBP
+                  </p>
+                </div>
+                <div
+                  onClick={() => setOpenDropdown(false)}
+                  className="flex p-3 justify-between w-full hover:bg-[#86a7bd1a] transition-all cursor-pointer rounded items-center gap-2"
+                >
+                  <div className="rounded-full relative w-[30px] h-[30px] overflow-hidden">
+                    <Image alt="" src={"/flag.webp"} fill />
+                  </div>
+                  <p className="text-dark-blue text-sm font-medium">
+                    37.00 GBP
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
           <h2 className="text-dark-blue text-5xl font-bold my-5">£36.9980</h2>
           <div className="flex justify-start items-center  flex-col w-full">
