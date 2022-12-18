@@ -10,23 +10,7 @@ const Home = () => {
     <DashboardLayout>
       <div className="flex lg:pb-0 pb-[60px] justify-start h-full items-center self-start sm:items-start flex-col max-w-[1200px] pt-[40px] sm:pt-5 w-full">
         <h2 className="text-dark-blue text-2xl font-medium">Home</h2>
-        <div className="flex mt-[20px] flex-wrap justify-center sm:justify-start items-center gap-4">
-          <CurrencyCard flag={"/flag.webp"} name="UK GBP" amount="0.00" />
-          <CurrencyCard flag={"/flag.webp"} name="UK GBP" amount="0.00" />
-        </div>
-        {/* <div className="flex flex-col h-full justify-center items-center gap-4 self-center">
-            <p className="text-gray max-w-[400px] text-center">
-              This is where you will see your transactions and activity. Choose
-              how you would like to started.
-            </p>{" "}
-            <Link href={"/payment"}>
-              <button className="bg-green block  rounded-sm mt-3 font-medium w-[115px] leading-[1] h-[40px] border-none text-white text-sm hover:bg-emerald-700 cursor-pointer">
-                Send Money
-              </button>
-            </Link>
-          </div> */}
 
-        {/* //amount in wallaet section starts here --------------------------- */}
         <div className="flex justify-start items-center gap-6 mt-[40px] flex-col w-full">
           <div className="relative flex  justify-between items-center  ">
             <div
@@ -98,51 +82,31 @@ const Home = () => {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-                  />
-                </svg>
-                <p className="text-blue font-normal text-sm sm:text-base">
-                  Recieve
-                </p>
-              </div>
-              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 sm:w-auto w-[60px]">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="white"
-                  className="sm:w-10 w-8 sm:h-10 h-8 rounded-full bg-blue p-[6px] sm:p-2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
-                  />
-                </svg>
-
-                <p className="text-blue font-normal text-sm sm:text-base">
-                  Buy
-                </p>
-              </div>
-              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 sm:w-auto w-[60px]">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="white"
-                  className="sm:w-10 w-8 sm:h-10 h-8 rounded-full bg-blue p-[6px] sm:p-2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
                     d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
                   />
                 </svg>
 
                 <p className="text-blue font-normal text-sm sm:text-base">
                   Send
+                </p>
+              </div>
+              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 sm:w-auto w-[60px]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="white"
+                  className="sm:w-10 w-8 sm:h-10 h-8 rounded-full bg-blue p-[6px] sm:p-2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                  />
+                </svg>
+                <p className="text-blue font-normal text-sm sm:text-base">
+                  Recieve
                 </p>
               </div>
               <div className="flex cursor-pointer justify-center items-center flex-col gap-2 sm:w-auto w-[60px]">
@@ -165,6 +129,27 @@ const Home = () => {
                   Swap
                 </p>
               </div>
+              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 sm:w-auto w-[60px]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="white"
+                  className="sm:w-10 w-8 sm:h-10 h-8 rounded-full bg-blue p-[6px] sm:p-2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
+                  />
+                </svg>
+
+                <p className="text-blue font-normal text-sm sm:text-base">
+                  Add
+                </p>
+              </div>
+
               <div className="flex cursor-pointer justify-center items-center flex-col gap-2 sm:w-auto w-[60px]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -219,22 +204,6 @@ const Home = () => {
 };
 
 export default Home;
-
-const CurrencyCard = ({ flag, amount, name }) => {
-  return (
-    <div className="cursor-pointer hover:bg-[#38c8ff1a] flex justify-between items-start flex-col p-5 bg-[#86a7bd1a] w-[208px] h-[208px] rounded-lg">
-      <div className="relative overflow-hidden w-[48px] h-[48px] rounded-full">
-        <Image alt="" src={flag} fill style={{ objectFit: "cover" }} />
-      </div>
-      <div className="flex justify-start items-start flex-col gap-2">
-        <h5 className="text-dark-blue text-xl font-normal leading-[1]">
-          {amount}
-        </h5>
-        <p className="text-gray text-base leading-[1]">{name}</p>
-      </div>
-    </div>
-  );
-};
 
 const CurrencyConvertorTab = ({ img, amount, name, converted }) => {
   return (
