@@ -27,9 +27,7 @@ const Transaction = () => {
                 </svg>
               </div>
               <div className="flex justify-start items-start flex-col">
-                <h4 className="text-dark-blue text-base font-medium">
-                  CFX LABS INC.
-                </h4>
+                <h4 className="text-dark-blue text-base font-medium">Lorem</h4>
                 <p className="text-gray font-normal text-sm ">Cancelled</p>
               </div>
             </div>
