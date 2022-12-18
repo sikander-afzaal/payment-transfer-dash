@@ -3,6 +3,21 @@ import AddContactModal from "./AddContactModal";
 
 const Recipient = ({ setSteps }) => {
   const [newContactModal, setNewContactModal] = useState(false);
+  const [searchVal, setSearchVal] = useState("");
+  const dummyData = [
+    {
+      name: "lorem",
+    },
+    {
+      name: "dummy",
+    },
+    {
+      name: "ABC",
+    },
+    {
+      name: "EFG",
+    },
+  ];
 
   return (
     <div className="flex px-2 mt-[30px] lg:mt-[80px] justify-center flex-col gap-5 items-center w-full max-w-[562px]">
@@ -27,6 +42,8 @@ const Recipient = ({ setSteps }) => {
         </svg>
 
         <input
+          onChange={(e) => setSearchVal(e.target.value)}
+          value={searchVal}
           placeholder="Name, email, phone"
           type="text"
           className=" w-full h-[50px] transition-colors outline-none text-dark-blue"
@@ -72,8 +89,15 @@ const Recipient = ({ setSteps }) => {
         <p className="w-full text-gray px-2 font-normal text-base border-b-[1px] pb-2   border-solid border-b-[#0000001a]">
           All
         </p>
-        <Contact name="Someone" setSteps={setSteps} />
-        <Contact name="Someone" setSteps={setSteps} />
+        {dummyData
+          .filter((elem) => {
+            return elem.name.toLowerCase().includes(searchVal.toLowerCase());
+          })
+          .map((elem, idx) => {
+            return (
+              <Contact setSteps={setSteps} {...elem} key={"contact" + idx} />
+            );
+          })}
       </div>
     </div>
   );

@@ -1,7 +1,35 @@
 import Link from "next/link";
+import { useState } from "react";
 import DashboardLayout from "../layout/DashboardLayout";
 
 const History = () => {
+  const [searchVal, setSearchVal] = useState("");
+  const dummyData = [
+    {
+      name: "lorem",
+      status: "Cancelled",
+      amount: "20 GBP",
+      currency: "INR",
+    },
+    {
+      name: "dummy",
+      status: "Cancelled",
+      amount: "20 GBP",
+      currency: "INR",
+    },
+    {
+      name: "ABC",
+      status: "Cancelled",
+      amount: "20 GBP",
+      currency: "INR",
+    },
+    {
+      name: "EFG",
+      status: "Cancelled",
+      amount: "20 GBP",
+      currency: "INR",
+    },
+  ];
   return (
     <DashboardLayout>
       <div className="flex  max-w-[1200px] justify-start h-full items-center sm:items-start self-start flex-col pt-[40px] sm:pt-5 w-full">
@@ -24,7 +52,9 @@ const History = () => {
             />
           </svg>
           <input
+            onChange={(e) => setSearchVal(e.target.value)}
             type="text"
+            value={searchVal}
             placeholder="Search"
             className="border-none w-full outline-none text-gray font-normal text-base h-[20px]"
           />
@@ -33,18 +63,13 @@ const History = () => {
           <p className="text-base mb-2 font-medium text-gray  w-full pb-2 border-b-[1px] border-solid border-[#0000001a]">
             Yesterday
           </p>
-          <TransactionDetailsComp
-            name="CFX LABS INC."
-            status="Cancelled"
-            amount="20 GBP"
-            currency="INR"
-          />
-          <TransactionDetailsComp
-            name="CFX LABS INC."
-            status="Cancelled"
-            amount="20 GBP"
-            currency="INR"
-          />
+          {dummyData
+            .filter((elem) => {
+              return elem.name.toLowerCase().includes(searchVal.toLowerCase());
+            })
+            .map((elem, idx) => {
+              return <TransactionDetailsComp {...elem} key={"his" + idx} />;
+            })}
         </div>
       </div>
     </DashboardLayout>

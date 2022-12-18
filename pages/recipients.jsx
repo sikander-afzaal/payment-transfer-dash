@@ -5,6 +5,33 @@ import DashboardLayout from "../layout/DashboardLayout";
 
 const Recipients = () => {
   const [addContactModal, setAddContactModal] = useState(false);
+  const [searchVal, setSearchVal] = useState("");
+  const dummyData = [
+    {
+      name: "lorem",
+      status: "Cancelled",
+      amount: "20 GBP",
+      currency: "INR",
+    },
+    {
+      name: "dummy",
+      status: "Cancelled",
+      amount: "20 GBP",
+      currency: "INR",
+    },
+    {
+      name: "ABC",
+      status: "Cancelled",
+      amount: "20 GBP",
+      currency: "INR",
+    },
+    {
+      name: "EFG",
+      status: "Cancelled",
+      amount: "20 GBP",
+      currency: "INR",
+    },
+  ];
   return (
     <DashboardLayout>
       <div className="flex  max-w-[1200px] justify-start h-full items-center sm:items-start self-start flex-col pt-[40px] sm:pt-5 w-full">
@@ -26,7 +53,9 @@ const Recipients = () => {
             />
           </svg>
           <input
+            onChange={(e) => setSearchVal(e.target.value)}
             type="text"
+            value={searchVal}
             placeholder="Search"
             className="border-none w-full outline-none text-gray font-normal text-base h-[20px]"
           />
@@ -41,18 +70,13 @@ const Recipients = () => {
               Add Recipient
             </button>
           </div>
-          <RecipientTab
-            name="Someone"
-            status="Person"
-            country="India"
-            currency="INR"
-          />
-          <RecipientTab
-            name="Someone"
-            status="Business"
-            country="India"
-            currency="INR"
-          />
+          {dummyData
+            .filter((elem) => {
+              return elem.name.toLowerCase().includes(searchVal.toLowerCase());
+            })
+            .map((elem, idx) => {
+              return <RecipientTab {...elem} key={"resc" + idx} />;
+            })}
         </div>
       </div>
     </DashboardLayout>

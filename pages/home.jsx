@@ -69,8 +69,8 @@ const Home = () => {
           </div>
           <h2 className="text-dark-blue text-5xl font-bold my-5">£36.9980</h2>
           <div className="flex justify-start items-center  flex-col w-full">
-            <div className="flex justify-center items-center w-full gap-[25x] sm:gap-[50px]">
-              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 sm:w-auto w-[60px]">
+            <div className="flex justify-center items-center w-full gap-[15px] sm:gap-[20px]">
+              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 w-auto  sm:w-[106px]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -90,7 +90,7 @@ const Home = () => {
                   Send
                 </p>
               </div>
-              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 sm:w-auto w-[60px]">
+              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 w-auto  sm:w-[106px]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -109,7 +109,7 @@ const Home = () => {
                   Recieve
                 </p>
               </div>
-              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 sm:w-auto w-[60px]">
+              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 w-auto  sm:w-[106px]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -129,7 +129,7 @@ const Home = () => {
                   Swap
                 </p>
               </div>
-              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 sm:w-auto w-[60px]">
+              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 w-auto  sm:w-[106px]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -146,11 +146,11 @@ const Home = () => {
                 </svg>
 
                 <p className="text-blue font-normal text-sm sm:text-base">
-                  Add
+                  Add Funds
                 </p>
               </div>
 
-              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 sm:w-auto w-[60px]">
+              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 w-auto  sm:w-[106px]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -167,7 +167,7 @@ const Home = () => {
                 </svg>
 
                 <p className="text-blue font-normal text-sm sm:text-base">
-                  Withraw
+                  Withraw Funds
                 </p>
               </div>
             </div>
