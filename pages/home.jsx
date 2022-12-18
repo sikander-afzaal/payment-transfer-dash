@@ -12,6 +12,7 @@ const Home = () => {
         <h2 className="text-dark-blue text-2xl font-medium">Home</h2>
 
         <div className="flex justify-start items-center gap-6 mt-[40px] flex-col w-full">
+          <h2 className="text-dark-blue text-3xl font-bold">Total Balance</h2>
           <div className="relative flex  justify-between items-center  ">
             <div
               onClick={() => setOpenDropdown((prev) => !prev)}
@@ -70,7 +71,10 @@ const Home = () => {
           <h2 className="text-dark-blue text-5xl font-bold my-5">£36.9980</h2>
           <div className="flex justify-start items-center  flex-col w-full">
             <div className="flex justify-center items-center w-full gap-[15px] sm:gap-[20px]">
-              <div className="flex cursor-pointer justify-center items-center flex-col gap-2 w-auto  sm:w-[106px]">
+              <Link
+                href={"/payment"}
+                className="flex cursor-pointer justify-center items-center flex-col gap-2 w-auto  sm:w-[106px]"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -89,7 +93,7 @@ const Home = () => {
                 <p className="text-blue font-normal text-sm sm:text-base">
                   Send
                 </p>
-              </div>
+              </Link>
               <div className="flex cursor-pointer justify-center items-center flex-col gap-2 w-auto  sm:w-[106px]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

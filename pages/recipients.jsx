@@ -8,26 +8,26 @@ const Recipients = () => {
   const [searchVal, setSearchVal] = useState("");
   const dummyData = [
     {
-      name: "lorem",
-      status: "Cancelled",
+      name: "John Snow",
+      status: "Wallet",
       amount: "20 GBP",
       currency: "INR",
     },
     {
-      name: "dummy",
-      status: "Cancelled",
+      name: "John Snow",
+      status: "Wallet",
       amount: "20 GBP",
       currency: "INR",
     },
     {
-      name: "ABC",
-      status: "Cancelled",
+      name: "John Snow",
+      status: "Wallet",
       amount: "20 GBP",
       currency: "INR",
     },
     {
-      name: "EFG",
-      status: "Cancelled",
+      name: "John Snow",
+      status: "Wallet",
       amount: "20 GBP",
       currency: "INR",
     },
@@ -87,7 +87,7 @@ export default Recipients;
 
 const RecipientTab = ({ name, status, country, currency }) => {
   return (
-    <Link className="w-full" href={"/transaction"}>
+    <Link className="w-full" href={"/recipient__details"}>
       <div className="flex justify-between hover:bg-[#86a7bd1a] px-0 lg:px-5  py-5 rounded-md transition-all items-center w-full">
         <div className="flex gap-3 justify-start  items-center">
           <div className="rounded-full w-[40px] text-gray h-[40px] bg-[#0000001a] overflow-hidden grid place-items-center">
@@ -111,10 +111,10 @@ const RecipientTab = ({ name, status, country, currency }) => {
             <p className="text-gray font-normal text-sm ">{status}</p>
           </div>
         </div>
-        <div className="flex justify-start items-end flex-col">
+        {/* <div className="flex justify-start items-end flex-col">
           <h4 className="text-gray text-base font-medium">{country}</h4>
           <p className="text-gray font-normal text-sm ">To {currency}</p>
-        </div>
+        </div> */}
       </div>
     </Link>
   );

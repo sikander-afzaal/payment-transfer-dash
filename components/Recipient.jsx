@@ -6,16 +6,16 @@ const Recipient = ({ setSteps }) => {
   const [searchVal, setSearchVal] = useState("");
   const dummyData = [
     {
-      name: "lorem",
+      name: "John Snow",
     },
     {
-      name: "dummy",
+      name: "John Snow",
     },
     {
-      name: "ABC",
+      name: "John Snow",
     },
     {
-      name: "EFG",
+      name: "John Snow",
     },
   ];
 
