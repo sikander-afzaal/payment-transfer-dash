@@ -1,10 +1,18 @@
 import Image from "next/image";
 import { useState } from "react";
+import { useOutsideClick } from "../hooks/OutsideClickDetector";
 
 const Amount = ({ setSteps }) => {
   const [dropDown1, setDropDown1] = useState(false);
   const [dropDown2, setDropDown2] = useState(false);
-
+  const handleClickOutside = () => {
+    setDropDown1(false);
+  };
+  const handleClickOutside2 = () => {
+    setDropDown2(false);
+  };
+  const ref = useOutsideClick(handleClickOutside);
+  const ref2 = useOutsideClick(handleClickOutside2);
   return (
     <div className="flex justify-start items-start flex-col w-full max-w-[562px] px-5 mt-[30px] lg:mt-[80px]">
       <div className="flex justify-center items-center w-full">
@@ -28,7 +36,10 @@ const Amount = ({ setSteps }) => {
             />
           </div>
           {/* currency selector ------------------------ */}
-          <div className="relative  cursor-pointer text-blue  min-w-[150px] bg-[#2e4369]">
+          <div
+            ref={ref}
+            className="relative  cursor-pointer text-blue  min-w-[150px] bg-[#2e4369]"
+          >
             <div
               className="flex justify-center items-center gap-3 h-full w-full"
               onClick={() => {
@@ -154,7 +165,10 @@ const Amount = ({ setSteps }) => {
             />
           </div>
           {/* currency selector ------------------------ */}
-          <div className="relative  cursor-pointer text-blue  min-w-[150px] bg-[#2e4369]">
+          <div
+            ref={ref2}
+            className="relative  cursor-pointer text-blue  min-w-[150px] bg-[#2e4369]"
+          >
             <div
               className="flex justify-center items-center gap-3 h-full w-full"
               onClick={() => {

@@ -1,11 +1,18 @@
 import Link from "next/link";
 import { useState } from "react";
+import { useOutsideClick } from "../hooks/OutsideClickDetector";
 
 const AccountDetailsHeader = () => {
   const [openDrop, setOpenDrop] = useState(false);
-
+  const handleClickOutside = () => {
+    setOpenDrop(false);
+  };
+  const ref = useOutsideClick(handleClickOutside);
   return (
-    <div className="flex relative justify-center text-blue items-center gap-2 sm:gap-4">
+    <div
+      ref={ref}
+      className="flex relative justify-center text-blue items-center gap-2 sm:gap-4"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

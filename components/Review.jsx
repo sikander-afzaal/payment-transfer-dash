@@ -1,14 +1,22 @@
 import { useState } from "react";
+import { useOutsideClick } from "../hooks/OutsideClickDetector";
 
 const Review = ({ setSteps }) => {
   const [openDrop, setOpenDrop] = useState(false);
   const [dropVal, setDropVal] = useState("Travel Payment");
+  const handleClickOutside = () => {
+    setOpenDrop(false);
+  };
+  const ref = useOutsideClick(handleClickOutside);
   return (
     <div className="flex justify-start items-center gap-3 flex-col mt-[30px] w-full max-w-[600px] px-5">
       <h2 className="text-dark-blue text-2xl font-medium ">
         Reason for Transfer
       </h2>
-      <div className="w-full mt-2 flex justify-start items-center relative gap-0">
+      <div
+        ref={ref}
+        className="w-full mt-2 flex justify-start items-center relative gap-0"
+      >
         <button
           onClick={() => setOpenDrop((prev) => !prev)}
           className="justify-between bg-white border-[1px] hover:hover:bg-[#86a7bd12] transition-all border-solid border-dark-blue p-3 rounded cursor-pointer text-dark-blue items-center w-full flex"

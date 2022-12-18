@@ -1,11 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useOutsideClick } from "../hooks/OutsideClickDetector";
 import DashboardLayout from "../layout/DashboardLayout";
 
 const Home = () => {
   const [openDropdown, setOpenDropdown] = useState(false);
-
+  const handleClickOutside = () => {
+    setOpenDropdown(false);
+  };
+  const ref = useOutsideClick(handleClickOutside);
   return (
     <DashboardLayout>
       <div className="flex lg:pb-0 pb-[60px] justify-start h-full items-center self-start sm:items-start flex-col max-w-[1200px] pt-[40px] sm:pt-5 w-full">
@@ -13,10 +17,13 @@ const Home = () => {
 
         <div className="flex justify-start items-center gap-6 mt-[40px] flex-col w-full">
           <h2 className="text-dark-blue text-3xl font-bold">Total Balance</h2>
-          <div className="relative flex  justify-between items-center  ">
+          <div
+            ref={ref}
+            className="relative flex  justify-between items-center  "
+          >
             <div
               onClick={() => setOpenDropdown((prev) => !prev)}
-              className="flex        cursor-pointer text-gray justify-between items-center px-1 py-1 bg-white rounded-full  border-[1px] border-gray border-solid  gap-5 "
+              className="flex cursor-pointer text-gray justify-between items-center px-1 py-1 bg-white rounded-full  border-[1px] border-gray border-solid  gap-5 "
             >
               <div className="flex  justify-start items-center gap-2">
                 <div className="rounded-full relative w-[30px] h-[30px] overflow-hidden">
