@@ -84,7 +84,7 @@ export default Recipient;
 const Contact = ({ name, setSteps }) => {
   return (
     <div
-      onClick={() => setSteps(3)}
+      onClick={() => setSteps(2)}
       className="flex rounded-md hover:bg-[#86a7bd12] px-2 cursor-pointer py-4  transition-all justify-between text-dark-blue w-full items-center"
     >
       <div className="flex text-dark-blue justify-center items-center gap-5">

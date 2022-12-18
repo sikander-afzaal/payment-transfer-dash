@@ -5,6 +5,7 @@ import AccountDetailsHeader from "../components/AccountDetailsHeader";
 import Amount from "../components/Amount";
 import Pay from "../components/Pay";
 import Recipient from "../components/Recipient";
+import Review from "../components/Review";
 
 const Payment = () => {
   const [steps, setSteps] = useState(0);
@@ -52,11 +53,11 @@ const Payment = () => {
             </p>
             <p
               onClick={() => setSteps(2)}
-              className={`${steps === 2 ? " text-dark-blue" : ""} ${
-                steps > 2 ? "text-blue" : ""
-              } ${
-                steps < 2 ? "text-gray" : ""
-              }   cursor-pointer sm:block hidden pointer-events-none absolute top-2   left-[66.6667%] font-medium text-sm`}
+              className={`${
+                steps === 2 ? " text-dark-blue pointer-events-auto" : ""
+              } ${steps > 2 ? "text-blue pointer-events-auto" : ""} ${
+                steps < 2 ? "text-gray  pointer-events-none" : ""
+              }   cursor-pointer sm:block hidden absolute top-2   left-[66.6667%] font-medium text-sm`}
             >
               Review
             </p>
@@ -78,6 +79,7 @@ const Payment = () => {
       </div>
       {steps === 0 && <Amount setSteps={setSteps} />}
       {steps === 1 && <Recipient setSteps={setSteps} />}
+      {steps === 2 && <Review setSteps={setSteps} />}
       {steps === 3 && <Pay setSteps={setSteps} />}
     </div>
   );
