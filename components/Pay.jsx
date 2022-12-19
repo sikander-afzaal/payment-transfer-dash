@@ -2,6 +2,18 @@ import { useState } from "react";
 import TransactionModal from "./TransactionModal";
 
 const Pay = () => {
+  const DUMMY__DATA = {
+    sending: "20 GBP",
+    fee: "0.57 GBP",
+    convert: "19.6 GBP",
+    rate: "278.054 GBP",
+    recieve: "5,402.59 INR",
+    arrivalTime: "30 min",
+    name: "Shaheer Ahmad",
+    email: "XYZ@gmail.com",
+    IBAN: "XXX XXX XXX XXX XXX",
+    bankCode: "XXXXXXXXX",
+  };
   const [radioBtnToggle, setRadioBtnToggle] = useState([
     false,
     false,
@@ -116,50 +128,54 @@ const Pay = () => {
         <div className="flex justify-start items-start flex-col px-3 w-full gap-3  py-5 border-solid border-[1px] border-[#0000001a]">
           <p className="text-gray text-sm font-medium">Transfer details</p>
           <p className="text-dark-blue w-full flex justify-between items-center font-normal text-sm">
-            You send exactly <span className="font-medium text-xl">20 GBP</span>
+            You send exactly{" "}
+            <span className="font-medium text-xl">{DUMMY__DATA.sending}</span>
           </p>
           <p className="text-green w-full flex justify-between items-center font-normal text-sm">
             Total fees (included){" "}
-            <span className="font-medium text-base">0.57 GBP</span>
+            <span className="font-medium text-base">{DUMMY__DATA.fee}</span>
           </p>
           <p className="text-dark-blue w-full flex justify-between items-center font-normal text-sm">
             Total amount we{"'"}ll convert{" "}
-            <span className="font-normal text-base">19.43 GBP</span>
+            <span className="font-normal text-base">{DUMMY__DATA.convert}</span>
           </p>
           <p className="text-dark-blue w-full flex justify-between items-center font-normal text-sm">
             Guaranteed rate (3 hours)
-            <span className="font-normal text-base">278.054</span>
+            <span className="font-normal text-base">{DUMMY__DATA.rate}</span>
           </p>
           <p className="text-dark-blue w-full flex justify-between items-center font-normal text-sm">
-            You get <span className="font-medium text-xl">5,402.59 INR</span>
+            You get{" "}
+            <span className="font-medium text-xl">{DUMMY__DATA.recieve}</span>
           </p>{" "}
           <p className="text-dark-blue w-full flex justify-between items-center font-normal text-sm">
             Should arrive
-            <span className="font-normal text-base">in 31 minutes</span>
+            <span className="font-normal text-base">
+              in {DUMMY__DATA.arrivalTime}
+            </span>
           </p>
           <div className="w-full pt-3 mt-4 border-solid border-t-[1px] border-[#0000001a] flex justify-start items-start flex-col gap-3">
             <p className="text-gray w-full flex justify-between items-center font-normal text-sm">
               Name
               <span className="font-normal text-dark-blue text-base">
-                Shaheer Ahmad
+                {DUMMY__DATA.name}
               </span>
             </p>
             <p className="text-gray w-full flex justify-between items-center font-normal text-sm">
               Email
               <span className="font-normal text-dark-blue text-base">
-                XYZ@gmail.com
+                {DUMMY__DATA.email}
               </span>
             </p>
             <p className="text-gray w-full flex justify-between items-center font-normal text-sm">
               IBAN
               <span className="font-normal text-dark-blue text-base">
-                XXX XXX XXX XXX XXX
+                {DUMMY__DATA.IBAN}
               </span>
             </p>
             <p className="text-gray w-full flex justify-between items-center font-normal text-sm">
               Bank code (BIC/SWIFT)
               <span className="font-normal text-dark-blue text-base">
-                XXXXXXXXX
+                {DUMMY__DATA.bankCode}
               </span>
             </p>
           </div>

@@ -5,11 +5,39 @@ import { useOutsideClick } from "../hooks/OutsideClickDetector";
 import DashboardLayout from "../layout/DashboardLayout";
 
 const Home = () => {
+  const CURRENCY_DUMMY = [
+    {
+      name: "GBP",
+      totalBalance: "£36.9999",
+      balance: "37",
+      flag: "/flag.webp",
+    },
+    {
+      name: "AED",
+      totalBalance: "AED 36.9999",
+      balance: "372",
+      flag: "/flag.webp",
+    },
+    {
+      name: "INR",
+      totalBalance: "₹36.9999",
+      balance: "3722",
+      flag: "/flag.webp",
+    },
+    {
+      name: "USD",
+      totalBalance: "$16.9999",
+      balance: "372231",
+      flag: "/flag.webp",
+    },
+  ];
   const [openDropdown, setOpenDropdown] = useState(false);
+  const [dropVal, setDropVal] = useState(CURRENCY_DUMMY[0]);
   const handleClickOutside = () => {
     setOpenDropdown(false);
   };
   const ref = useOutsideClick(handleClickOutside);
+
   return (
     <DashboardLayout>
       <div className="flex lg:pb-0 pb-[60px] justify-start h-full items-center self-start sm:items-start flex-col max-w-[1200px] pt-[40px] sm:pt-5 w-full">
@@ -27,9 +55,11 @@ const Home = () => {
             >
               <div className="flex  justify-start items-center gap-2">
                 <div className="rounded-full relative w-[30px] h-[30px] overflow-hidden">
-                  <Image alt="" src={"/flag.webp"} fill />
+                  <Image alt="" src={dropVal.flag} fill />
                 </div>
-                <p className="text-dark-blue text-sm font-medium">37.00 GBP</p>
+                <p className="text-dark-blue text-sm font-medium">
+                  {dropVal.balance} {dropVal.name}
+                </p>
               </div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -49,33 +79,32 @@ const Home = () => {
               </svg>
             </div>
             {openDropdown && (
-              <div className="bg-white flex flex-col py-1 rounded-lg border-[1px] border-gray border-solid w-full right-0 top-[120%] absolute z-20">
-                <div
-                  onClick={() => setOpenDropdown(false)}
-                  className="flex p-3 justify-between w-full hover:bg-[#86a7bd1a] transition-all cursor-pointer rounded items-center gap-2"
-                >
-                  <div className="rounded-full relative w-[30px] h-[30px] overflow-hidden">
-                    <Image alt="" src={"/flag.webp"} fill />
-                  </div>
-                  <p className="text-dark-blue text-sm font-medium">
-                    37.00 GBP
-                  </p>
-                </div>
-                <div
-                  onClick={() => setOpenDropdown(false)}
-                  className="flex p-3 justify-between w-full hover:bg-[#86a7bd1a] transition-all cursor-pointer rounded items-center gap-2"
-                >
-                  <div className="rounded-full relative w-[30px] h-[30px] overflow-hidden">
-                    <Image alt="" src={"/flag.webp"} fill />
-                  </div>
-                  <p className="text-dark-blue text-sm font-medium">
-                    37.00 GBP
-                  </p>
-                </div>
+              <div className="bg-white flex flex-col py-1 rounded-lg border-[1px] border-gray border-solid min-w-full w-max right-0 top-[120%] absolute z-20">
+                {CURRENCY_DUMMY.map((elem, idx) => {
+                  return (
+                    <div
+                      key={"currency" + idx}
+                      onClick={() => {
+                        setOpenDropdown(false);
+                        setDropVal(elem);
+                      }}
+                      className="flex p-3 justify-between w-full hover:bg-[#86a7bd1a] transition-all cursor-pointer rounded items-center gap-3"
+                    >
+                      <div className="rounded-full relative w-[30px] h-[30px] overflow-hidden">
+                        <Image alt="" src={elem.flag} fill />
+                      </div>
+                      <p className="text-dark-blue text-sm font-medium">
+                        {elem.balance} {elem.name}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
             )}
           </div>
-          <h2 className="text-dark-blue text-5xl font-bold my-5">£36.9980</h2>
+          <h2 className="text-dark-blue text-5xl font-bold my-5">
+            {dropVal.totalBalance}
+          </h2>
           <div className="flex justify-start items-center  flex-col w-full">
             <div className="flex justify-center items-center w-full gap-[15px] sm:gap-[20px]">
               <Link

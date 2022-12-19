@@ -1,10 +1,40 @@
+import Link from "next/link";
 import DashboardLayout from "../layout/DashboardLayout";
 
 const Transaction = () => {
+  const DETAILS__DUMMY = {
+    name: "Lorem",
+    status: "Cancelled",
+    amount: "20 GBP",
+    to: "INR",
+    goingToSend: "20 GBP",
+    fee: "0.57 GBP",
+    recieved: "2220 GBP",
+    transactionNum: "#562120976",
+    type: "Private",
+    IBAN: "XXXXXXXXXXXXXXXXX",
+    bankCode: "XXXXXXXXXXX",
+  };
   return (
     <DashboardLayout>
       <div className="flex justify-start min-h-full mb-5 items-center sm:items-start flex-col pt-[40px] sm:pt-5 w-full">
-        <h2 className="text-dark-blue font-medium text-2xl">
+        <h2 className="text-dark-blue font-medium text-2xl flex justify-start items-center gap-5">
+          <Link href={"/history"}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+              />
+            </svg>
+          </Link>
           Transaction Details
         </h2>
         <div className="border-[1px]  border-solid max-w-[1065px] pb-5 border-[#0000001a] w-full   mt-6">
@@ -27,13 +57,21 @@ const Transaction = () => {
                 </svg>
               </div>
               <div className="flex justify-start items-start flex-col">
-                <h4 className="text-dark-blue text-base font-medium">Lorem</h4>
-                <p className="text-gray font-normal text-sm ">Cancelled</p>
+                <h4 className="text-dark-blue text-base font-medium">
+                  {DETAILS__DUMMY.name}
+                </h4>
+                <p className="text-gray font-normal text-sm ">
+                  {DETAILS__DUMMY.status}
+                </p>
               </div>
             </div>
             <div className="flex justify-start items-end flex-col">
-              <h4 className="text-gray text-base font-medium">20 GBP</h4>
-              <p className="text-gray font-normal text-sm ">To INR</p>
+              <h4 className="text-gray text-base font-medium">
+                {DETAILS__DUMMY.amount}
+              </h4>
+              <p className="text-gray font-normal text-sm ">
+                To {DETAILS__DUMMY.to}
+              </p>
             </div>
           </div>
           <div className="flex md:pl-[8%] px-5 justify-between items-center w-full border-b-[1px] pb-4  py-0 pt-5 border-solid border-[#0000001a]">
@@ -79,21 +117,27 @@ const Transaction = () => {
               </p>
               <p className="flex justify-between items-center w-full text-sm text-gray">
                 You were going to send{" "}
-                <span className="text-dark-blue">20 GBP</span>
+                <span className="text-dark-blue">
+                  {DETAILS__DUMMY.goingToSend}
+                </span>
               </p>
               <p className="flex justify-between items-center w-full text-sm text-gray">
                 <span className="text-blue font-medium underline">Our fee</span>{" "}
-                <span className="text-dark-blue">0.57 GBP</span>
+                <span className="text-dark-blue">{DETAILS__DUMMY.fee}</span>
               </p>
               <div className="w-full border-dashed py-6 my-2 border-y-[1px] border-gray">
                 <p className="flex justify-between items-center w-full text-sm text-gray">
                   You would have received{" "}
-                  <span className="text-dark-blue font-medium">2220 GBP</span>
+                  <span className="text-dark-blue font-medium">
+                    {DETAILS__DUMMY.recieved}
+                  </span>
                 </p>
               </div>
               <p className="flex justify-between items-center w-full text-sm text-gray">
                 Transaction number{" "}
-                <span className="text-dark-blue ">#562120976</span>
+                <span className="text-dark-blue ">
+                  {DETAILS__DUMMY.transactionNum}
+                </span>
               </p>
             </div>
             <div className="flex justify-start items-start flex-col gap-2 w-full">
@@ -102,15 +146,17 @@ const Transaction = () => {
               </p>
               <p className="flex justify-between items-center w-full text-sm text-gray">
                 Recipient type
-                <span className="text-dark-blue">Private</span>
+                <span className="text-dark-blue">{DETAILS__DUMMY.type}</span>
               </p>
               <p className="flex justify-between items-center w-full text-sm text-gray">
                 IBAN
-                <span className="text-dark-blue">XXXXXXXXXXXXXXXXX</span>
+                <span className="text-dark-blue">{DETAILS__DUMMY.IBAN}</span>
               </p>
               <p className="flex justify-between items-center w-full text-sm text-gray">
                 Bank code (BIC/SWIFT)
-                <span className="text-dark-blue">XXXXXXXXXXX</span>
+                <span className="text-dark-blue">
+                  {DETAILS__DUMMY.bankCode}
+                </span>
               </p>
               <div className="flex mt-2 justify-start flex-col items-start w-full gap-2">
                 <p className="text-dark-blue font-medium text-base">Note</p>

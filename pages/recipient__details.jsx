@@ -1,10 +1,35 @@
+import Link from "next/link";
 import DashboardLayout from "../layout/DashboardLayout";
 
 const RecipientDetails = () => {
+  const DUMMY__DETAILS = {
+    name: "John Snow",
+    type: "Wallet",
+    bankAccNum: "1234567",
+    IFSC: "HDFC00001234",
+    UPI: "jonsnow@icicibank",
+    wallet: "jamesbond@nexgpay",
+  };
   return (
     <DashboardLayout>
       <div className="flex justify-start min-h-full mb-5 items-center sm:items-start flex-col pt-[40px] sm:pt-5 w-full">
-        <h2 className="text-dark-blue font-medium text-2xl">
+        <h2 className="text-dark-blue font-medium text-2xl flex justify-start items-center gap-5">
+          <Link href={"/recipients"}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+              />
+            </svg>
+          </Link>
           Recipient Details
         </h2>
         <div className="border-[1px]  border-solid max-w-[1065px] pb-5 border-[#0000001a] w-full   mt-6">
@@ -29,9 +54,11 @@ const RecipientDetails = () => {
               <div className="flex justify-start items-start flex-col">
                 <h4 className="text-dark-blue text-base font-medium">
                   {" "}
-                  Jon Snow
+                  {DUMMY__DETAILS.name}
                 </h4>
-                <p className="text-gray font-normal text-sm ">Wallet</p>
+                <p className="text-gray font-normal text-sm ">
+                  {DUMMY__DETAILS.type}
+                </p>
               </div>
             </div>
           </div>
@@ -78,19 +105,21 @@ const RecipientDetails = () => {
               </p>
               <p className="flex justify-between items-center w-full text-sm text-gray">
                 Bank Account Number
-                <span className="text-dark-blue">1234567</span>
+                <span className="text-dark-blue">
+                  {DUMMY__DETAILS.bankAccNum}
+                </span>
               </p>
               <p className="flex justify-between items-center w-full text-sm text-gray">
                 IFSC Code
-                <span className="text-dark-blue">HDFC00001234</span>
+                <span className="text-dark-blue">{DUMMY__DETAILS.IFSC}</span>
               </p>
               <p className="flex justify-between items-center w-full text-sm text-gray">
                 UPI ID
-                <span className="text-dark-blue">jonsnow@icicibank</span>
+                <span className="text-dark-blue">{DUMMY__DETAILS.UPI}</span>
               </p>
               <p className="flex justify-between items-center w-full text-sm text-gray">
                 Wallet
-                <span className="text-dark-blue">jamesbond@nexgpay</span>
+                <span className="text-dark-blue">{DUMMY__DETAILS.wallet}</span>
               </p>
               <div className="flex mt-2 justify-start flex-col items-start w-full gap-2">
                 <p className="text-dark-blue font-medium text-base">Note</p>

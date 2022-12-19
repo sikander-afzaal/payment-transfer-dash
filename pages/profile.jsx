@@ -5,7 +5,16 @@ const Profile = () => {
   const [editDetails, setEditDetails] = useState(false);
   const [cancelled, setCancelled] = useState(true);
   const [savePrompt, setSavePrompt] = useState(false);
-
+  const DUMMY__DETAILS = {
+    firstName: "Shaheer",
+    LastName: "Ahamd",
+    dob: "18 August 2004",
+    phone: "+92 000000000",
+    country: "India",
+    city: "Delhi",
+    address: "XYZ",
+    postalCode: "XYZ",
+  };
   return (
     <DashboardLayout>
       {savePrompt && (
@@ -113,7 +122,7 @@ const Profile = () => {
                 cancelled={cancelled}
                 label="Full legal first and middle names"
                 editable={editDetails}
-                text="Shaheer"
+                text={DUMMY__DETAILS.firstName}
                 type="text"
               />
 
@@ -121,7 +130,7 @@ const Profile = () => {
                 cancelled={cancelled}
                 editable={editDetails}
                 label="Full legal last name(s)"
-                text="Ahmad"
+                text={DUMMY__DETAILS.LastName}
                 type="text"
               />
             </div>
@@ -130,7 +139,7 @@ const Profile = () => {
                 cancelled={cancelled}
                 label="Date of birth"
                 editable={editDetails}
-                text="18 August 2003"
+                text={DUMMY__DETAILS.dob}
                 type="dob"
               />
 
@@ -138,7 +147,7 @@ const Profile = () => {
                 cancelled={cancelled}
                 editable={editDetails}
                 label="Phone"
-                text="+92 0000000000"
+                text={DUMMY__DETAILS.phone}
                 type="text"
               />
             </div>
@@ -152,7 +161,7 @@ const Profile = () => {
                 cancelled={cancelled}
                 label="Country"
                 editable={editDetails}
-                text="India"
+                text={DUMMY__DETAILS.country}
                 type="text"
               />
 
@@ -160,14 +169,14 @@ const Profile = () => {
                 cancelled={cancelled}
                 editable={editDetails}
                 label="City"
-                text="Delhi"
+                text={DUMMY__DETAILS.city}
                 type="text"
               />
             </div>
             <div className="gap-[40px] lg:flex-row flex-col flex justify-between items-center w-full">
               <DetailsComp
                 cancelled={cancelled}
-                label="Address"
+                label={DUMMY__DETAILS.address}
                 editable={editDetails}
                 text="XYZ"
                 type="text"
@@ -177,7 +186,7 @@ const Profile = () => {
                 cancelled={cancelled}
                 editable={editDetails}
                 label="Postal Code"
-                text="XYZ"
+                text={DUMMY__DETAILS.postalCode}
                 type="text"
               />
             </div>
@@ -202,10 +211,11 @@ const DetailsComp = ({ label, text, editable, type, cancelled }) => {
   useEffect(() => {
     if (type === "dob") {
       const splitDate = text.split(" ");
-      const date = splitDate[0].slice(0, 2);
+      const date = splitDate[0];
       const month = splitDate[1];
       const year = splitDate[2];
       setDob({ date, month, year });
+      setDisplayDob({ date, month, year });
     }
   }, []);
   useEffect(() => {

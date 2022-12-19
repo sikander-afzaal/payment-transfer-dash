@@ -3,8 +3,39 @@ import { useState } from "react";
 import { useOutsideClick } from "../hooks/OutsideClickDetector";
 
 const Amount = ({ setSteps }) => {
+  const DUMMY__DETAILS__DROPDOWN = [
+    {
+      curr: "GBP",
+      flag: "/flag.webp",
+      name: "UK",
+    },
+    {
+      curr: "AED",
+      flag: "/flag.webp",
+      name: "Australia",
+    },
+    {
+      curr: "INR",
+      flag: "/flag.webp",
+      name: "India",
+    },
+    {
+      curr: "USD",
+      flag: "/flag.webp",
+      name: "USA",
+    },
+  ];
+  const DUMMY__DETAILS = {
+    fee: "54,705.87 GBP",
+    we__convert: "12,068,417.13 GBP",
+    rate: "278.297",
+  };
   const [dropDown1, setDropDown1] = useState(false);
+  const [dropDownVal, setDropDownVal] = useState(DUMMY__DETAILS__DROPDOWN[0]);
   const [dropDown2, setDropDown2] = useState(false);
+  const [dropDownVal2, setDropDownVal2] = useState(DUMMY__DETAILS__DROPDOWN[0]);
+  const [searchDrop1, setSearchDrop1] = useState("");
+  const [searchDrop2, setSearchDrop2] = useState("");
   const handleClickOutside = () => {
     setDropDown1(false);
   };
@@ -13,6 +44,7 @@ const Amount = ({ setSteps }) => {
   };
   const ref = useOutsideClick(handleClickOutside);
   const ref2 = useOutsideClick(handleClickOutside2);
+
   return (
     <div className="flex justify-start items-start flex-col w-full max-w-[562px] px-5 mt-[30px] lg:mt-[80px]">
       <div className="flex justify-center items-center w-full">
@@ -48,8 +80,10 @@ const Amount = ({ setSteps }) => {
               }}
             >
               {" "}
-              <Image alt="" src={"/flag.webp"} width={34} height={16} />
-              <h2 className="text-white font-base text-xl">GBP</h2>
+              <Image alt="" src={dropDownVal.flag} width={34} height={16} />
+              <h2 className="text-white font-base text-xl">
+                {dropDownVal.curr}
+              </h2>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -83,6 +117,8 @@ const Amount = ({ setSteps }) => {
                     />
                   </svg>
                   <input
+                    onChange={(e) => setSearchDrop1(e.target.value)}
+                    value={searchDrop1}
                     type="text"
                     placeholder="Type currency / country"
                     className="border-none w-full outline-none text-gray font-normal text-base h-[50px]"
@@ -92,30 +128,25 @@ const Amount = ({ setSteps }) => {
                   <p className="text-gray px-5 py-2 text-base">
                     Popular Countries
                   </p>
-                  <CountryDropdown
-                    setDrop={setDropDown1}
-                    name={"UK"}
-                    curr="GBP"
-                    img={"/flag.webp"}
-                  />
-                  <CountryDropdown
-                    setDrop={setDropDown1}
-                    name={"UK"}
-                    curr="GBP"
-                    img={"/flag.webp"}
-                  />
-                  <CountryDropdown
-                    setDrop={setDropDown1}
-                    name={"UK"}
-                    curr="GBP"
-                    img={"/flag.webp"}
-                  />
-                  <CountryDropdown
-                    setDrop={setDropDown1}
-                    name={"UK"}
-                    curr="GBP"
-                    img={"/flag.webp"}
-                  />
+                  {DUMMY__DETAILS__DROPDOWN.filter((elem) => {
+                    return (
+                      elem.name
+                        .toLowerCase()
+                        .includes(searchDrop1.toLowerCase()) ||
+                      elem.curr
+                        .toLowerCase()
+                        .includes(searchDrop1.toLowerCase())
+                    );
+                  }).map((elem, idx) => {
+                    return (
+                      <CountryDropdown
+                        key={"select1" + idx}
+                        setDrop={setDropDown1}
+                        setDropVal={setDropDownVal}
+                        {...elem}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -129,7 +160,8 @@ const Amount = ({ setSteps }) => {
               <span className="absolute left-0 top-0 w-full h-full -z-10 bg-white"></span>
             </p>
             <p className="font-semibold text-base leading-[1]">
-              54,705.87 GBP <span className="font-normal">(0.45%) fee</span>
+              {DUMMY__DETAILS.fee}{" "}
+              <span className="font-normal">(0.45%) fee</span>
             </p>
           </div>
           <div className="text-dark-blue flex justify-start items-center w-full gap-[25px]">
@@ -138,7 +170,7 @@ const Amount = ({ setSteps }) => {
               <span className="absolute left-0 top-0 w-full h-full -z-10 bg-white"></span>
             </p>
             <p className="font-semibold text-base leading-[1]">
-              12,068,417.13 GBP{" "}
+              {DUMMY__DETAILS.we__convert}{" "}
               <span className="font-normal">Total amount we’ll convert</span>
             </p>
           </div>
@@ -148,7 +180,7 @@ const Amount = ({ setSteps }) => {
               <span className="absolute left-0 top-0 w-full h-full -z-10 bg-white"></span>
             </p>
             <p className="font-semibold text-base leading-[1]">
-              278.297{" "}
+              {DUMMY__DETAILS.rate}{" "}
               <span className="font-normal">Guaranteed rate (24 hrs)</span>
             </p>
           </div>
@@ -177,8 +209,10 @@ const Amount = ({ setSteps }) => {
               }}
             >
               {" "}
-              <Image alt="" src={"/flag.webp"} width={34} height={16} />
-              <h2 className="text-white font-base text-xl">GBP</h2>
+              <Image alt="" src={dropDownVal2.flag} width={34} height={16} />
+              <h2 className="text-white font-base text-xl">
+                {dropDownVal2.curr}
+              </h2>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -212,6 +246,8 @@ const Amount = ({ setSteps }) => {
                     />
                   </svg>
                   <input
+                    onChange={(e) => setSearchDrop2(e.target.value)}
+                    value={searchDrop2}
                     type="text"
                     placeholder="Type currency / country"
                     className="border-none w-full outline-none text-gray font-normal text-base h-[50px]"
@@ -221,30 +257,25 @@ const Amount = ({ setSteps }) => {
                   <p className="text-gray px-5 py-2 text-base">
                     Popular Countries
                   </p>
-                  <CountryDropdown
-                    setDrop={setDropDown2}
-                    name={"UK"}
-                    curr="GBP"
-                    img={"/flag.webp"}
-                  />
-                  <CountryDropdown
-                    setDrop={setDropDown2}
-                    name={"UK"}
-                    curr="GBP"
-                    img={"/flag.webp"}
-                  />
-                  <CountryDropdown
-                    setDrop={setDropDown2}
-                    name={"UK"}
-                    curr="GBP"
-                    img={"/flag.webp"}
-                  />
-                  <CountryDropdown
-                    setDrop={setDropDown2}
-                    name={"UK"}
-                    curr="GBP"
-                    img={"/flag.webp"}
-                  />
+                  {DUMMY__DETAILS__DROPDOWN.filter((elem) => {
+                    return (
+                      elem.name
+                        .toLowerCase()
+                        .includes(searchDrop2.toLowerCase()) ||
+                      elem.curr
+                        .toLowerCase()
+                        .includes(searchDrop2.toLowerCase())
+                    );
+                  }).map((elem, idx) => {
+                    return (
+                      <CountryDropdown
+                        key={"select2" + idx}
+                        setDrop={setDropDown2}
+                        setDropVal={setDropDownVal2}
+                        {...elem}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             )}
@@ -268,13 +299,16 @@ const Amount = ({ setSteps }) => {
 
 export default Amount;
 
-const CountryDropdown = ({ name, img, curr, setDrop }) => {
+const CountryDropdown = ({ name, flag, curr, setDrop, setDropVal }) => {
   return (
     <div
-      onClick={() => setDrop(false)}
+      onClick={() => {
+        setDrop(false);
+        setDropVal({ name, flag, curr });
+      }}
       className="flex justify-start px-5  hover:bg-[rgba(134,167,189,.102)] cursor-pointer w-full py-4 items-center gap-0"
     >
-      <Image alt="" src={img} width={34} height={16} />
+      <Image alt="" src={flag} width={34} height={16} />
       <h3 className="text-dark-blue font-medium text-base ml-3 leading-[1]">
         {name}
       </h3>
